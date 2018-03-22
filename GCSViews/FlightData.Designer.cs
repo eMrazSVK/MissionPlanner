@@ -135,6 +135,8 @@
             this.groupBoxPitch = new System.Windows.Forms.GroupBox();
             this.trackBarPitch = new System.Windows.Forms.TrackBar();
             this.TXT_gimbalPitchPos = new System.Windows.Forms.TextBox();
+            this.tabAdbEsc = new System.Windows.Forms.TabPage();
+            this.myButton4 = new MissionPlanner.Controls.MyButton();
             this.tableMap = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.zg1 = new ZedGraph.ZedGraphControl();
@@ -174,6 +176,14 @@
             this.CB_tuning = new System.Windows.Forms.CheckBox();
             this.ZedGraphTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc1 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc2 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc3 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc4 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc5 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc6 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc7 = new System.Windows.Forms.ToolTip(this.components);
+            this.tooltipAdbEsc8 = new System.Windows.Forms.ToolTip(this.components);
             this.openScriptDialog = new System.Windows.Forms.OpenFileDialog();
             this.scriptChecker = new System.Windows.Forms.Timer(this.components);
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -218,6 +228,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarYaw)).BeginInit();
             this.groupBoxPitch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitch)).BeginInit();
+            this.tabAdbEsc.SuspendLayout();
             this.tableMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -456,6 +467,7 @@
             this.tabControlactions.Controls.Add(this.tabScripts);
             this.tabControlactions.Controls.Add(this.tabPagemessages);
             this.tabControlactions.Controls.Add(this.tabPayload);
+            this.tabControlactions.Controls.Add(this.tabAdbEsc);
             resources.ApplyResources(this.tabControlactions, "tabControlactions");
             this.tabControlactions.Name = "tabControlactions";
             this.tabControlactions.SelectedIndex = 0;
@@ -944,7 +956,6 @@
             // Gvspeed
             // 
             this.Gvspeed.BackColor = System.Drawing.Color.Transparent;
-            this.Gvspeed.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.Gvspeed, "Gvspeed");
             this.Gvspeed.BaseArcColor = System.Drawing.Color.Transparent;
             this.Gvspeed.BaseArcRadius = 60;
@@ -1091,7 +1102,6 @@
             // Gheading
             // 
             this.Gheading.BackColor = System.Drawing.Color.Transparent;
-            this.Gheading.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.Gheading, "Gheading");
             this.Gheading.DataBindings.Add(new System.Windows.Forms.Binding("Heading", this.bindingSourceGaugesTab, "yaw", true));
             this.Gheading.DataBindings.Add(new System.Windows.Forms.Binding("NavHeading", this.bindingSourceGaugesTab, "nav_bearing", true));
@@ -1102,7 +1112,6 @@
             // Galt
             // 
             this.Galt.BackColor = System.Drawing.Color.Transparent;
-            this.Galt.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.Galt, "Galt");
             this.Galt.BaseArcColor = System.Drawing.Color.Transparent;
             this.Galt.BaseArcRadius = 60;
@@ -1247,7 +1256,6 @@
             // Gspeed
             // 
             this.Gspeed.BackColor = System.Drawing.Color.Transparent;
-            this.Gspeed.BackgroundImage = global::MissionPlanner.Properties.Resources.Gaugebg;
             resources.ApplyResources(this.Gspeed, "Gspeed");
             this.Gspeed.BaseArcColor = System.Drawing.Color.Transparent;
             this.Gspeed.BaseArcRadius = 70;
@@ -1905,6 +1913,20 @@
             resources.ApplyResources(this.TXT_gimbalPitchPos, "TXT_gimbalPitchPos");
             this.TXT_gimbalPitchPos.Name = "TXT_gimbalPitchPos";
             // 
+            // tabAdbEsc
+            // 
+            this.tabAdbEsc.Controls.Add(this.myButton4);
+            resources.ApplyResources(this.tabAdbEsc, "tabAdbEsc");
+            this.tabAdbEsc.Name = "tabAdbEsc";
+            this.tabAdbEsc.UseVisualStyleBackColor = true;
+            // 
+            // myButton4
+            // 
+            resources.ApplyResources(this.myButton4, "myButton4");
+            this.myButton4.Name = "myButton4";
+            this.myButton4.UseVisualStyleBackColor = true;
+            this.myButton4.Click += new System.EventHandler(this.myButton4_Click);
+            // 
             // tableMap
             // 
             resources.ApplyResources(this.tableMap, "tableMap");
@@ -2281,7 +2303,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Image = global::MissionPlanner.Properties.Resources.up;
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
@@ -2290,7 +2312,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
-            this.dataGridViewImageColumn2.Image = global::MissionPlanner.Properties.Resources.down;
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
@@ -2358,6 +2380,7 @@
             this.groupBoxPitch.ResumeLayout(false);
             this.groupBoxPitch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPitch)).EndInit();
+            this.tabAdbEsc.ResumeLayout(false);
             this.tableMap.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -2420,6 +2443,14 @@
         private Controls.MyButton BUT_log2kml;
         private Controls.MyButton BUT_joystick;
         private System.Windows.Forms.ToolTip toolTip1;
+        System.Windows.Forms.ToolTip tooltipAdbEsc1;
+        System.Windows.Forms.ToolTip tooltipAdbEsc2;
+        System.Windows.Forms.ToolTip tooltipAdbEsc3;
+        System.Windows.Forms.ToolTip tooltipAdbEsc4;
+        System.Windows.Forms.ToolTip tooltipAdbEsc5;
+        System.Windows.Forms.ToolTip tooltipAdbEsc6;
+        System.Windows.Forms.ToolTip tooltipAdbEsc7;
+        System.Windows.Forms.ToolTip tooltipAdbEsc8;
         private Controls.MyLabel lbl_logpercent;
         private System.Windows.Forms.ToolStripMenuItem pointCameraHereToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -2548,5 +2579,7 @@
         private System.Windows.Forms.GroupBox groupBoxYaw;
         private System.Windows.Forms.GroupBox groupBoxPitch;
         private Controls.MyButton BUT_PayloadFolder;
+        private System.Windows.Forms.TabPage tabAdbEsc;
+        private Controls.MyButton myButton4;
     }
 }

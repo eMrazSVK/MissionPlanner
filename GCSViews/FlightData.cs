@@ -4605,6 +4605,32 @@ namespace MissionPlanner.GCSViews
             MainV2.comPort.setMountConfigure(MAVLink.MAV_MOUNT_MODE.MAVLINK_TARGETING, false, false, false);
             MainV2.comPort.setMountControl((float)trackBarPitch.Value * 100.0f, (float)trackBarRoll.Value * 100.0f, (float)trackBarYaw.Value * 100.0f, false);
         }
+
+        private void myButton4_Click(object sender, EventArgs e)
+        {
+            MissionPlanner.Controls.Forms.AdbEscForm AdbWindow = new MissionPlanner.Controls.Forms.AdbEscForm(bindingSource1);
+            
+            AdbWindow.Show();
+            //AdbWindow.RefreshConfigColors();
+        }
+
+        private void labelEsc1_MouseHover(object sender, EventArgs e)
+        {
+            
+            string message;
+            message = "Is: " + "\n";
+
+            //SCALED_IMU;
+
+            // takto zistíme, aký frame máme!!!
+            if (MainV2.comPort.MAV.aptype == MAVLink.MAV_TYPE.HEXAROTOR)
+            {
+
+            }
+
+
+        }
+
     }
 }
  

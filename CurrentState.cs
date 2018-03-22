@@ -427,6 +427,69 @@ namespace MissionPlanner
         public float ch15out { get; set; }
         public float ch16out { get; set; }
 
+        // adb esc TESTING
+        // TBI
+        public float adb_esc_id { get; set; }
+        public float adb_esc_dmg_msgs { get; set; }
+        public float adb_esc_good_msgs { get; set; }
+
+        public float adb_esc_speed_1 { get; set; }
+        public float adb_esc_vs_1 { get; set; }
+        public float adb_esc_is_1 { get; set; }
+        public float adb_esc_vbus_1 { get; set; }
+        public float adb_esc_pwm_1 { get; set; }
+        public float adb_esc_temp_1 { get; set; }
+        
+        public float adb_esc_speed_2 { get; set; }
+        public float adb_esc_vs_2 { get; set; }
+        public float adb_esc_is_2 { get; set; }
+        public float adb_esc_vbus_2 { get; set; }
+        public float adb_esc_pwm_2 { get; set; }
+        public float adb_esc_temp_2 { get; set; }
+
+        public float adb_esc_speed_3 { get; set; }
+        public float adb_esc_vs_3 { get; set; }
+        public float adb_esc_is_3 { get; set; }
+        public float adb_esc_vbus_3 { get; set; }
+        public float adb_esc_pwm_3 { get; set; }
+        public float adb_esc_temp_3 { get; set; }
+
+        public float adb_esc_speed_4 { get; set; }
+        public float adb_esc_vs_4 { get; set; }
+        public float adb_esc_is_4 { get; set; }
+        public float adb_esc_vbus_4 { get; set; }
+        public float adb_esc_pwm_4 { get; set; }
+        public float adb_esc_temp_4 { get; set; }
+
+        public float adb_esc_speed_5 { get; set; }
+        public float adb_esc_vs_5 { get; set; }
+        public float adb_esc_is_5 { get; set; }
+        public float adb_esc_vbus_5 { get; set; }
+        public float adb_esc_pwm_5 { get; set; }
+        public float adb_esc_temp_5 { get; set; }
+
+        public float adb_esc_speed_6 { get; set; }
+        public float adb_esc_vs_6 { get; set; }
+        public float adb_esc_is_6 { get; set; }
+        public float adb_esc_vbus_6 { get; set; }
+        public float adb_esc_pwm_6 { get; set; }
+        public float adb_esc_temp_6 { get; set; }
+
+        public float adb_esc_speed_7 { get; set; }
+        public float adb_esc_vs_7 { get; set; }
+        public float adb_esc_is_7 { get; set; }
+        public float adb_esc_vbus_7 { get; set; }
+        public float adb_esc_pwm_7 { get; set; }
+        public float adb_esc_temp_7 { get; set; }
+
+        public float adb_esc_speed_8 { get; set; }
+        public float adb_esc_vs_8 { get; set; }
+        public float adb_esc_is_8 { get; set; }
+        public float adb_esc_vbus_8 { get; set; }
+        public float adb_esc_pwm_8 { get; set; }
+        public float adb_esc_temp_8 { get; set; }
+
+
         public float ch3percent
         {
             get
@@ -2187,10 +2250,12 @@ namespace MissionPlanner
 
                         if (mavLinkMessage.ismavlink2)
                         {
+                            /*
                             gpsh_acc = gps.h_acc / 1000.0f;
                             gpsv_acc = gps.v_acc / 1000.0f;
                             gpsvel_acc = gps.vel_acc / 1000.0f;
                             gpshdg_acc = gps.hdg_acc / 1e5f;
+                            */
                         }
                         else
                         {
@@ -2294,6 +2359,91 @@ namespace MissionPlanner
 
                         //MAVLink.packets[(byte)MAVLink.MSG_NAMES.NAV_CONTROLLER_OUTPUT);
                     }
+
+                    // ADB ESC TESTING
+                    mavLinkMessage = MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.ADB_ESC_DATA);
+
+                    if (mavLinkMessage != null)
+                    {
+                        var adb_esc = mavLinkMessage.ToStructure<MAVLink.mavlink_adb_esc_data_t>();
+
+                        adb_esc_id = adb_esc.esc_id;
+
+                        switch (adb_esc.esc_id)
+                        {
+                            case 0:
+                                adb_esc_speed_1 = adb_esc.speed;
+                                adb_esc_vs_1 = adb_esc.vs;
+                                adb_esc_is_1 = adb_esc.Iss;
+                                adb_esc_vbus_1 = adb_esc.vbus;
+                                adb_esc_pwm_1 = adb_esc.pwm;
+                                adb_esc_temp_1 = adb_esc.temp;
+                                break;
+                            case 1:
+                                adb_esc_speed_2 = adb_esc.speed;
+                                adb_esc_vs_2 = adb_esc.vs;
+                                adb_esc_is_2 = adb_esc.Iss;
+                                adb_esc_vbus_2 = adb_esc.vbus;
+                                adb_esc_pwm_2 = adb_esc.pwm;
+                                adb_esc_temp_2 = adb_esc.temp;
+                                break;
+                            case 2:
+                                adb_esc_speed_3 = adb_esc.speed;
+                                adb_esc_vs_3 = adb_esc.vs;
+                                adb_esc_is_3 = adb_esc.Iss;
+                                adb_esc_vbus_3 = adb_esc.vbus;
+                                adb_esc_pwm_3 = adb_esc.pwm;
+                                adb_esc_temp_3 = adb_esc.temp;
+                                break;
+                            case 3:
+                                adb_esc_speed_4 = adb_esc.speed;
+                                adb_esc_vs_4 = adb_esc.vs;
+                                adb_esc_is_4 = adb_esc.Iss;
+                                adb_esc_vbus_4 = adb_esc.vbus;
+                                adb_esc_pwm_4 = adb_esc.pwm;
+                                adb_esc_temp_4 = adb_esc.temp;
+                                break;
+                            case 4:
+                                adb_esc_speed_5 = adb_esc.speed;
+                                adb_esc_vs_5 = adb_esc.vs;
+                                adb_esc_is_5 = adb_esc.Iss;
+                                adb_esc_vbus_5 = adb_esc.vbus;
+                                adb_esc_pwm_5 = adb_esc.pwm;
+                                adb_esc_temp_5 = adb_esc.temp;
+                                break;
+                            case 5:
+                                adb_esc_speed_6 = adb_esc.speed;
+                                adb_esc_vs_6 = adb_esc.vs;
+                                adb_esc_is_6 = adb_esc.Iss;
+                                adb_esc_vbus_6 = adb_esc.vbus;
+                                adb_esc_pwm_6 = adb_esc.pwm;
+                                adb_esc_temp_6 = adb_esc.temp;
+                                break;                         
+                            case 6:
+                                adb_esc_speed_7 = adb_esc.speed;
+                                adb_esc_vs_7 = adb_esc.vs;
+                                adb_esc_is_7 = adb_esc.Iss;
+                                adb_esc_vbus_7 = adb_esc.vbus;
+                                adb_esc_pwm_7 = adb_esc.pwm;
+                                adb_esc_temp_7 = adb_esc.temp;
+                                break;
+                            case 7:
+                                adb_esc_speed_8 = adb_esc.speed;
+                                adb_esc_vs_8 = adb_esc.vs;
+                                adb_esc_is_8 = adb_esc.Iss;
+                                adb_esc_vbus_8 = adb_esc.vbus;
+                                adb_esc_pwm_8 = adb_esc.pwm;
+                                adb_esc_temp_8 = adb_esc.temp;
+                                break;
+                        }
+                        
+                        adb_esc_dmg_msgs = adb_esc.damaged_msgs;
+                        adb_esc_good_msgs = adb_esc.good_msgs;
+
+
+        //MAVLink.packets[(byte)MAVLink.MSG_NAMES.NAV_CONTROLLER_OUTPUT);
+    }
+                    // ADB ESC TESTING END
 
                     mavLinkMessage = MAV.getPacket((uint) MAVLink.MAVLINK_MSG_ID.RPM);
 

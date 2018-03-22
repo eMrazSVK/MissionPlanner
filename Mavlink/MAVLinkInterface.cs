@@ -3776,6 +3776,7 @@ Please check the following
                     }
 
                     // set seens sysid's based on hb packet - this will hide 3dr radio packets
+                    /*
                     if (msgid == (uint) MAVLINK_MSG_ID.UAVCAN_NODE_STATUS)
                     {
                         var cannode = message.ToStructure<mavlink_uavcan_node_status_t>();
@@ -3790,7 +3791,7 @@ Please check the following
                             setAPType(sysid, compid);
                         }
                     }
-
+                    */
                     // set seens sysid's based on hb packet - this will hide 3dr radio packets
                     if (msgid == (byte)MAVLINK_MSG_ID.HEARTBEAT)
                     {
